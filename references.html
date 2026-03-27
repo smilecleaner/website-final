@@ -273,7 +273,10 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
   .reviews { padding: 4rem 2rem; }
   .t-grid { grid-template-columns: 1fr 1fr; }
   .t-card.wide { grid-column: span 2; }
-  .ref-letter { padding: 2rem; grid-column: span 2; }
+  .ref-letter { padding: 2rem; }
+  .ref-letter[style*="span 2"] { grid-column: span 2; }
+  .ref-letter[style*="span 1"] { grid-column: span 2; }
+  .ref-letter:not([style]) { grid-column: span 2; }
   .credentials { padding: 4rem 2rem; }
   .cred-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
 }
@@ -334,7 +337,8 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
       </div>
     </div>
 
-    <div class="ref-letter">
+    <!-- Row 2: Olivia Tong (span 2) + David Long (span 1) -->
+    <div class="ref-letter" style="grid-column:span 2;">
       <div class="ref-body">
         <p>Dear whom it may concern,</p>
         <p>I am writing to provide a positive reference for Kay whom I have worked alongside as a colleague for over two years at a European luxury fashion house across two different stores.</p>
@@ -349,6 +353,8 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
       </div>
     </div>
     <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"The team are very professional, hard-working and efficient. Our premises have never looked better since bringing Smile Cleaning on board."</p><div class="t-div"></div><div class="t-name">David Long</div><div class="t-role">Regional Manager</div><div class="t-org">Gucci, Auckland</div><span class="t-stag">Commercial cleaning</span></div>
+
+    <!-- Row 3: Joy Cho (span 1) + Teresa (span 2) -->
     <div class="ref-letter" style="grid-column:span 1;">
       <div class="ref-body">
         <p>To whom it may concern,</p>
