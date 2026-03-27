@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Free Quote | Smile Cleaning Ltd Auckland</title>
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@700&display=swap');
+
+:root {
+  --primary:   #edc624;
+  --primary-l: #f1d253;
+  --primary-d: #cda911;
+  --black:     #111111;
+  --black-deep:#000000;
+  --black-soft:#2a2a2a;
+  --white:     #ffffff;
+  --off-white: #f9f7f1;
+  --off-white-dark: #ede9dc;
+  --text-muted:#888880;
+  --text-body: #1a1a1a;
+  --serif: 'Signika', 'Georgia', serif;
+  --body: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+  --sans: 'DM Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--white);color:var(--text-body);overflow-x:hidden;}
+
+/* ─── NAV — white bg, color logo, transparent bg ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.55rem 4rem;
+  background:var(--primary);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,0.12);
+}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo img{height:58px;width:auto;display:block;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
+.nav-links a{
+  font-family:var(--body);
+  font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
+  text-transform:uppercase;color:rgba(0,0,0,0.6);
+  text-decoration:none;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--black);}
+.nav-links a.active{color:var(--black);font-weight:500;}
+.nav-cta{
+  background:var(--black)!important;color:var(--white)!important;
+  padding:0.6rem 1.4rem;border-radius:2px;font-weight:500!important;
+  transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--black-soft)!important;}
+
+
+/* ─── FOOTER — white bg, color logo, transparent ─── */
+footer{
+  background:var(--primary);
+  padding:2.5rem 4rem;
+  border-top:none;
+}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;}
+.footer-logo img{height:44px;width:auto;}
+.footer-copy{font-size:0.72rem;color:rgba(0,0,0,0.55);letter-spacing:0.04em;}
+.footer-links{display:flex;gap:2rem;list-style:none;}
+.footer-links a{
+  font-size:0.72rem;letter-spacing:0.07em;text-transform:uppercase;
+  color:rgba(0,0,0,0.55);text-decoration:none;transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--black);}
+
+/* ─── BUTTONS ─── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:var(--primary);color:var(--black);
+  padding:0.9rem 2rem;border-radius:2px;
+  font-family:var(--body);font-size:0.82rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-primary:hover{background:var(--primary-l);transform:translateY(-1px);}
+.btn-dark{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:var(--black);color:var(--primary);
+  padding:0.9rem 2rem;border-radius:2px;
+  font-family:var(--body);font-size:0.82rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s;
+}
+.btn-dark:hover{background:var(--black-soft);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  color:rgba(255,255,255,0.65);font-size:0.82rem;font-weight:400;
+  letter-spacing:0.06em;text-decoration:none;transition:color 0.2s;
+  border:none;background:none;cursor:pointer;
+}
+.btn-ghost:hover{color:var(--primary);}
+.btn-ghost svg{transition:transform 0.2s;}
+.btn-ghost:hover svg{transform:translateX(3px);}
+
+/* ─── HEADINGS use Signika Bold ─── */
+h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
+  font-family:var(--serif);font-weight:700;
+}
+
+/* ─── SECTION LABELS ─── */
+.section-label{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+.section-label-line{width:28px;height:1px;background:var(--primary-d);}
+.section-label-text{
+  font-family:var(--body);
+  font-size:0.72rem;font-weight:400;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--primary-d);
+}
+.section-heading{
+  font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:700;color:var(--black);line-height:1.15;
+  max-width:560px;margin-bottom:3rem;
+}
+.section-heading em{font-style:italic;color:var(--primary-d);}
+
+/* ─── PAGE HERO ─── */
+.page-hero{background:var(--black);padding:8rem 4rem 5rem;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--primary);}
+.hero-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+.hero-eyebrow-line{width:36px;height:1px;background:var(--primary);}
+.hero-eyebrow-text{
+  font-family:var(--body);
+  font-size:0.72rem;font-weight:400;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--primary);
+}
+.page-hero h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;
+  color:var(--white);max-width:720px;margin-bottom:1.25rem;
+}
+.page-hero h1 em{font-style:italic;color:var(--primary);}
+.page-hero p{
+  font-family:var(--body);
+  font-size:0.92rem;line-height:1.8;color:rgba(0,0,0,0.5);
+  max-width:560px;font-weight:400;
+}
+.cta-strip{
+  background:var(--primary);padding:4rem;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.cta-strip h2{font-family:var(--serif);font-weight:700;font-size:2rem;color:var(--black);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+
+body{background:var(--black);}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+.c-left{background:var(--black);padding:9rem 5rem 5rem;display:flex;flex-direction:column;justify-content:center;position:sticky;top:0;height:100vh;}
+.c-left h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1.1;color:var(--white);margin-bottom:1.5rem;}
+.c-left h1 em{font-style:italic;color:var(--primary);}
+.c-left p{font-family:var(--body);font-size:0.9rem;line-height:1.8;color:rgba(255,255,255,0.4);font-weight:400;margin-bottom:3rem;max-width:360px;}
+.c-details{display:flex;flex-direction:column;gap:1.5rem;}
+.c-item{display:flex;align-items:flex-start;gap:1rem;}
+.c-icon{width:38px;height:38px;background:rgba(237,198,36,0.08);border:1px solid rgba(237,198,36,0.18);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.c-label{font-family:var(--body);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.2rem;}
+.c-value{font-family:var(--body);font-size:0.9rem;color:var(--white);}
+.c-value a{color:var(--white);text-decoration:none;transition:color 0.2s;}
+.c-value a:hover{color:var(--primary);}
+.r-badge{margin-top:3rem;display:inline-flex;align-items:center;gap:0.6rem;padding:0.6rem 1rem;border:1px solid rgba(237,198,36,0.2);border-radius:2px;}
+.r-dot{width:7px;height:7px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.r-text{font-family:var(--body);font-size:0.75rem;color:rgba(0,0,0,0.5);}
+.c-right{background:var(--off-white);padding:9rem 5rem 5rem;overflow-y:auto;}
+.fs-title{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--black);margin-bottom:0.5rem;}
+.fs-sub{font-family:var(--body);font-size:0.82rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.6;}
+.f-div{height:1px;background:var(--off-white-dark);margin:2.5rem 0;}
+.fgroup{margin-bottom:1.5rem;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+label{display:block;font-family:var(--body);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);margin-bottom:0.5rem;}
+label span{color:var(--primary-d);}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--off-white-dark);border-radius:2px;font-family:var(--body);font-size:0.88rem;color:var(--text-body);outline:none;transition:border-color 0.2s,box-shadow 0.2s;appearance:none;-webkit-appearance:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(237,198,36,0.12);}
+textarea{resize:vertical;min-height:120px;line-height:1.6;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23888' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;}
+.cb-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.5rem;}
+.cb-item{display:flex;align-items:center;gap:0.65rem;padding:0.75rem 1rem;background:var(--white);border:1px solid var(--off-white-dark);border-radius:2px;cursor:pointer;transition:border-color 0.2s;}
+.cb-item:hover{border-color:rgba(237,198,36,0.4);}
+.cb-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--primary);cursor:pointer;flex-shrink:0;}
+.cb-item label{font-family:var(--body);font-size:0.8rem;letter-spacing:0;text-transform:none;font-weight:400;color:var(--text-body);cursor:pointer;margin:0;}
+.btn-submit{width:100%;padding:1.1rem;background:var(--primary);color:var(--black);border:none;border-radius:2px;font-family:var(--body);font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.15s;display:flex;align-items:center;justify-content:center;gap:0.6rem;}
+.btn-submit:hover{background:var(--primary-l);transform:translateY(-1px);}
+.submit-note{font-family:var(--body);font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:1rem;line-height:1.6;}
+.success-state{display:none;text-align:center;padding:4rem 2rem;}
+.success-icon{width:64px;height:64px;background:rgba(237,198,36,0.1);border:2px solid var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;}
+.success-title{font-family:var(--serif);font-weight:700;font-size:1.8rem;color:var(--black);margin-bottom:0.75rem;}
+.success-body{font-family:var(--body);font-size:0.88rem;color:var(--text-muted);line-height:1.7;}
+.c-left>*{animation:fadeUp 0.6s ease both;}
+.c-left>*:nth-child(1){animation-delay:0.05s;}
+.c-left>*:nth-child(2){animation-delay:0.15s;}
+.c-left>*:nth-child(3){animation-delay:0.28s;}
+.c-left>*:nth-child(4){animation-delay:0.42s;}
+.c-left>*:nth-child(5){animation-delay:0.56s;}
+
+</style>
+</head>
+<body><nav><a class="nav-logo" href="index.html"><img src="logo_yellow.png" alt="Smile Cleaning Ltd" style="height:54px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="references.html">References</a></li><li><a href="contact.html" class="nav-cta active">Get a Quote</a></li></ul></nav>
+<div class="contact-layout">
+  <div class="c-left">
+    <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Free quote</span></div>
+    <h1>Let's talk about your <em>facility</em></h1>
+    <p>Fill in the form and we'll come back to you within 24 hours — or call us directly if you'd prefer to talk first.</p>
+    <div class="c-details">
+      <div class="c-item"><div class="c-icon"><svg width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="c-label">Call directly</div><div class="c-value"><a href="tel:0277889393">027 788 9393</a></div></div></div>
+      <div class="c-item"><div class="c-icon"><svg width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="c-label">Email us</div><div class="c-value"><a href="/cdn-cgi/l/email-protection#3b5a5f5652557b485652575e58575e5a5552555c574f5f15585456"><span class="__cf_email__" data-cfemail="91f0f5fcf8ffd1e2fcf8fdf4f2fdf4f0fff8fff6fde5f5bff2fefc">[email&#160;protected]</span></a></div></div></div>
+      <div class="c-item"><div class="c-icon"><svg width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="c-label">Based in</div><div class="c-value">Auckland, New Zealand</div></div></div>
+    </div>
+    <div class="r-badge"><div class="r-dot"></div><span class="r-text">We respond to all enquiries within 24 hours</span></div>
+  </div>
+  <div class="c-right">
+    <div id="quote-form">
+      <div class="fs-title">Tell us about your facility</div>
+      <div class="fs-sub">The more detail you provide, the more accurate your quote. Fields marked <span style="color:var(--primary-d);font-weight:500;">*</span> are required.</div>
+      <div class="frow">
+        <div class="fgroup"><label>First name <span>*</span></label><input type="text" id="fname" placeholder="Kay"></div>
+        <div class="fgroup"><label>Last name <span>*</span></label><input type="text" id="lname" placeholder="Kim"></div>
+      </div>
+      <div class="fgroup"><label>Organisation / business name <span>*</span></label><input type="text" id="org" placeholder="e.g. Tasman International Academies"></div>
+      <div class="frow">
+        <div class="fgroup"><label>Phone number <span>*</span></label><input type="tel" id="phone" placeholder="021 000 0000"></div>
+        <div class="fgroup"><label>Email address <span>*</span></label><input type="email" id="email" placeholder="you@organisation.co.nz"></div>
+      </div>
+      <div class="f-div"></div>
+      <div class="fs-title">About your facility</div>
+      <div class="fs-sub">Help us understand your space so we can tailor our approach.</div>
+      <div class="fgroup"><label>Facility type <span>*</span></label>
+        <select id="ftype"><option value="" disabled selected>Select your facility type</option><option>Primary or intermediate school</option><option>Secondary school</option><option>Early childhood centre / kindergarten</option><option>Office or corporate space</option><option>Retail or commercial space</option><option>Other</option></select>
+      </div>
+      <div class="frow">
+        <div class="fgroup"><label>Approximate size</label><select id="size"><option value="" disabled selected>Select a size range</option><option>Small (under 300 sqm)</option><option>Medium (300–800 sqm)</option><option>Large (800–2,000 sqm)</option><option>Very large (over 2,000 sqm)</option><option>Not sure</option></select></div>
+        <div class="fgroup"><label>Location / suburb</label><input type="text" id="suburb" placeholder="e.g. Auckland CBD"></div>
+      </div>
+      <div class="fgroup"><label>Preferred cleaning frequency <span>*</span></label>
+        <select id="freq"><option value="" disabled selected>How often do you need cleaning?</option><option>Daily (5 days a week)</option><option>3–4 days per week</option><option>Weekly</option><option>Fortnightly</option><option>One-off / deep clean</option><option>Not sure — need advice</option></select>
+      </div>
+      <div class="f-div"></div>
+      <div class="fs-title">Services required</div>
+      <div class="fs-sub">Select all that apply.</div>
+      <div class="cb-grid">
+        <div class="cb-item"><input type="checkbox" id="s1"><label for="s1">Regular maintenance cleaning</label></div>
+        <div class="cb-item"><input type="checkbox" id="s2"><label for="s2">Deep / holiday cleaning</label></div>
+        <div class="cb-item"><input type="checkbox" id="s3"><label for="s3">Carpet cleaning</label></div>
+        <div class="cb-item"><input type="checkbox" id="s4"><label for="s4">Window cleaning</label></div>
+        <div class="cb-item"><input type="checkbox" id="s5"><label for="s5">Strip & polish / scrub & buff</label></div>
+        <div class="cb-item"><input type="checkbox" id="s6"><label for="s6">Restroom deep clean</label></div>
+      </div>
+      <div class="f-div"></div>
+      <div class="fs-title">Anything else?</div>
+      <div class="fgroup"><label>Additional details or questions</label><textarea id="msg" placeholder="Tell us about specific requirements, access arrangements, or anything that would help us prepare an accurate quote..."></textarea></div>
+      <div class="fgroup"><label>How did you hear about us?</label>
+        <select id="src"><option value="" disabled selected>Select an option</option><option>Google search</option><option>Word of mouth / referral</option><option>Existing client recommendation</option><option>Social media</option><option>Other</option></select>
+      </div>
+      <div style="margin-top:2.5rem;">
+        <button class="btn-submit" onclick="submitForm()">Submit quote request <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        <p class="submit-note">By submitting this form you agree to be contacted by Smile Cleaning Ltd. We never share your information with third parties.</p>
+      </div>
+    </div>
+    <div class="success-state" id="success-msg">
+      <div class="success-icon"><svg width="28" height="28" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="success-title">Quote request received</div>
+      <p class="success-body">Thank you. Kay will personally review your request and get back to you within 24 hours.<br><br>In the meantime, call directly on <strong>027 788 9393</strong>.</p>
+    </div>
+  </div>
+</div>
+<footer><div class="footer-inner">
+  <a class="footer-logo" href="index.html"><img src="logo_yellow.png" alt="Smile Cleaning Ltd" style="height:44px;width:auto;display:block;"></a>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html">Get a Quote</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Smile Cleaning Ltd. Auckland, New Zealand.</span>
+</div></footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function submitForm() {
+  const required = ['fname','lname','org','phone','email','ftype','freq'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el || !el.value) {
+      if(el){el.style.borderColor='#e24b4a';el.style.boxShadow='0 0 0 3px rgba(226,75,74,0.12)';el.addEventListener('input',()=>{el.style.borderColor='';el.style.boxShadow='';},{once:true});}
+      valid = false;
+    }
+  });
+  if (!valid) { document.getElementById('fname').scrollIntoView({behavior:'smooth',bl

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>References & Testimonials | Smile Cleaning Ltd Auckland</title>
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@700&display=swap');
+
+:root {
+  --primary:   #edc624;
+  --primary-l: #f1d253;
+  --primary-d: #cda911;
+  --black:     #111111;
+  --black-deep:#000000;
+  --black-soft:#2a2a2a;
+  --white:     #ffffff;
+  --off-white: #f9f7f1;
+  --off-white-dark: #ede9dc;
+  --text-muted:#888880;
+  --text-body: #1a1a1a;
+  --serif: 'Signika', 'Georgia', serif;
+  --body: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+  --sans: 'DM Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--white);color:var(--text-body);overflow-x:hidden;}
+
+/* ─── NAV — white bg, color logo, transparent bg ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.55rem 4rem;
+  background:var(--primary);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,0.12);
+}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo img{height:58px;width:auto;display:block;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
+.nav-links a{
+  font-family:var(--body);
+  font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
+  text-transform:uppercase;color:rgba(0,0,0,0.6);
+  text-decoration:none;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--black);}
+.nav-links a.active{color:var(--black);font-weight:500;}
+.nav-cta{
+  background:var(--black)!important;color:var(--white)!important;
+  padding:0.6rem 1.4rem;border-radius:2px;font-weight:500!important;
+  transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--black-soft)!important;}
+
+
+/* ─── FOOTER — white bg, color logo, transparent ─── */
+footer{
+  background:var(--primary);
+  padding:2.5rem 4rem;
+  border-top:none;
+}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;}
+.footer-logo img{height:44px;width:auto;}
+.footer-copy{font-size:0.72rem;color:rgba(0,0,0,0.55);letter-spacing:0.04em;}
+.footer-links{display:flex;gap:2rem;list-style:none;}
+.footer-links a{
+  font-size:0.72rem;letter-spacing:0.07em;text-transform:uppercase;
+  color:rgba(0,0,0,0.55);text-decoration:none;transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--black);}
+
+/* ─── BUTTONS ─── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:var(--primary);color:var(--black);
+  padding:0.9rem 2rem;border-radius:2px;
+  font-family:var(--body);font-size:0.82rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-primary:hover{background:var(--primary-l);transform:translateY(-1px);}
+.btn-dark{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:var(--black);color:var(--primary);
+  padding:0.9rem 2rem;border-radius:2px;
+  font-family:var(--body);font-size:0.82rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s;
+}
+.btn-dark:hover{background:var(--black-soft);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  color:rgba(255,255,255,0.65);font-size:0.82rem;font-weight:400;
+  letter-spacing:0.06em;text-decoration:none;transition:color 0.2s;
+  border:none;background:none;cursor:pointer;
+}
+.btn-ghost:hover{color:var(--primary);}
+.btn-ghost svg{transition:transform 0.2s;}
+.btn-ghost:hover svg{transform:translateX(3px);}
+
+/* ─── HEADINGS use Signika Bold ─── */
+h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
+  font-family:var(--serif);font-weight:700;
+}
+
+/* ─── SECTION LABELS ─── */
+.section-label{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
+.section-label-line{width:28px;height:1px;background:var(--primary-d);}
+.section-label-text{
+  font-family:var(--body);
+  font-size:0.72rem;font-weight:400;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--primary-d);
+}
+.section-heading{
+  font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:700;color:var(--black);line-height:1.15;
+  max-width:560px;margin-bottom:3rem;
+}
+.section-heading em{font-style:italic;color:var(--primary-d);}
+
+/* ─── PAGE HERO ─── */
+.page-hero{background:var(--black);padding:8rem 4rem 5rem;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--primary);}
+.hero-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+.hero-eyebrow-line{width:36px;height:1px;background:var(--primary);}
+.hero-eyebrow-text{
+  font-family:var(--body);
+  font-size:0.72rem;font-weight:400;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--primary);
+}
+.page-hero h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;
+  color:var(--white);max-width:720px;margin-bottom:1.25rem;
+}
+.page-hero h1 em{font-style:italic;color:var(--primary);}
+.page-hero p{
+  font-family:var(--body);
+  font-size:0.92rem;line-height:1.8;color:rgba(255,255,255,0.55);
+  max-width:560px;font-weight:400;
+}
+.cta-strip{
+  background:var(--off-white);padding:4rem;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.cta-strip h2{font-family:var(--serif);font-weight:700;font-size:2rem;color:var(--black);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+
+.featured{background:var(--primary);padding:5rem 4rem;display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:center;}
+.feat-label{font-family:var(--body);font-size:0.72rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,0,0,0.45);margin-bottom:1rem;}
+.feat-mark{font-family:var(--serif);font-weight:700;font-size:6rem;color:rgba(0,0,0,0.12);line-height:1;}
+.featured blockquote{font-family:var(--body);font-size:clamp(1.2rem,2.2vw,1.65rem);font-weight:400;font-style:italic;line-height:1.6;color:var(--black);margin-bottom:2rem;}
+.feat-name{font-family:var(--serif);font-weight:700;font-size:0.95rem;color:var(--black);}
+.feat-role{font-family:var(--body);font-size:0.78rem;color:rgba(0,0,0,0.5);margin-top:0.2rem;}
+.feat-org{font-family:var(--body);font-size:0.78rem;color:var(--black);font-weight:500;margin-top:0.1rem;}
+.reviews{padding:5rem 4rem;background:var(--off-white);}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.t-card{background:var(--white);border:1px solid var(--off-white-dark);border-radius:2px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s;}
+.t-card:hover{border-color:rgba(237,198,36,0.4);box-shadow:0 0 0 1px rgba(237,198,36,0.15);}
+.t-card.wide{grid-column:span 2;}
+.t-card::before{content:'\201C';font-family:var(--serif);font-weight:700;font-size:5rem;color:var(--primary);opacity:0.2;position:absolute;top:0.5rem;left:1.5rem;line-height:1;}
+.t-stars{display:flex;gap:3px;margin-bottom:0.75rem;}
+.t-stars span{font-size:0.75rem;color:var(--primary);}
+.t-quote{font-family:var(--body);font-size:0.93rem;font-weight:400;font-style:italic;line-height:1.75;color:var(--black);margin-bottom:1.5rem;padding-top:1.25rem;}
+.t-card.wide .t-quote{font-size:0.97rem;}
+.t-div{height:1px;background:var(--off-white-dark);margin-bottom:1.25rem;}
+.t-name{font-family:var(--serif);font-weight:700;font-size:0.88rem;color:var(--black);}
+.t-role{font-family:var(--body);font-size:0.75rem;color:var(--text-muted);margin-top:0.2rem;}
+.t-org{font-family:var(--body);font-size:0.75rem;color:var(--primary-d);margin-top:0.15rem;font-weight:500;}
+.t-stag{display:inline-block;font-family:var(--body);font-size:0.65rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--primary-d);border:1px solid rgba(205,169,17,0.3);padding:0.2rem 0.55rem;border-radius:1px;margin-top:0.75rem;}
+/* Formal reference letter — NO org header, NO date */
+.ref-letter{background:var(--white);border:1px solid var(--off-white-dark);border-radius:2px;padding:3rem;grid-column:span 3;position:relative;overflow:hidden;}
+.ref-letter::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--primary);}
+.ref-body{font-family:var(--body);font-size:0.88rem;line-height:1.85;color:var(--text-body);font-weight:400;}
+.ref-body p{margin-bottom:1rem;}
+.ref-sig{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--off-white-dark);}
+.ref-sig-name{font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--black);}
+.ref-sig-role{font-family:var(--body);font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem;}
+.ref-sig-org{font-family:var(--body);font-size:0.78rem;color:var(--primary-d);font-weight:500;margin-top:0.1rem;}
+.credentials{background:var(--black-soft);padding:5rem 4rem;}
+.cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.05);margin-top:3rem;}
+.cred-item{background:var(--black-soft);padding:2.5rem 2rem;}
+.cred-num{font-family:var(--serif);font-weight:700;font-size:2.5rem;color:var(--primary);line-height:1;margin-bottom:0.5rem;}
+.cred-title{font-family:var(--serif);font-weight:700;font-size:0.88rem;color:var(--white);margin-bottom:0.4rem;}
+.cred-desc{font-family:var(--body);font-size:0.78rem;line-height:1.65;color:rgba(255,255,255,0.35);font-weight:400;}
+
+</style>
+</head>
+<body><nav><a class="nav-logo" href="index.html"><img src="logo_yellow.png" alt="Smile Cleaning Ltd" style="height:54px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="references.html" class="active">References</a></li><li><a href="contact.html" class="nav-cta">Get a Quote</a></li></ul></nav>
+<section class="page-hero">
+  <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Client references</span></div>
+  <h1>Trusted by Auckland's <em>leading</em> institutions</h1>
+  <p>Here's what the schools, centres, and businesses we serve say about working with Smile Cleaning Ltd.</p>
+  <div style="display:flex;gap:3px;margin-top:1.5rem;align-items:center;"><span style="font-size:1.1rem;color:var(--primary);">★★★★★</span><span style="font-family:var(--body);font-size:0.85rem;color:rgba(255,255,255,0.4);margin-left:0.75rem;">5.0 across all client references</span></div>
+</section>
+<div class="featured">
+  <div><div class="feat-label">Featured reference</div><div class="feat-mark">"</div></div>
+  <div>
+    <blockquote>"Smile Cleaning is one of the best companies I've ever worked with. Reliable, thorough, and always professional — our centre is in great hands and the difference in our environment has been remarkable."</blockquote>
+    <div class="feat-name">Joy Cho</div><div class="feat-role">Centre Manager</div><div class="feat-org">Early Childhood Centre, Auckland</div>
+  </div>
+</div>
+<section class="reviews">
+  <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">What our clients say</span></div>
+  <h2 class="section-heading">References from <em>every sector</em> we serve</h2>
+  <div class="t-grid">
+
+    <!-- Tasman reference — no header, no date -->
+    <div class="ref-letter">
+      <div class="ref-body">
+        <p>I write this reference for Smile Cleaning Ltd who tendered for and won the contract to clean Tasman International Academies. Smile Cleaning Ltd conducted their tender in a professional and efficient manner — meeting with me first to understand the scope of work required, then costing and delivering the tender in person.</p>
+        <p>Smile Cleaning Ltd was successful in winning the contract and commenced work on the 1st of October 2014. Staff at the school, including the caretaker, noticed a big difference in the overall cleanliness of the school since they began their work.</p>
+        <p>Smile Cleaning Ltd have maintained professional contact through a communication book. The company is always on time, completes the job efficiently and effectively, and ensures the school is secure at the end of their cleaning time each night. Several members of staff, having seen the very good work undertaken, have engaged them to clean their own homes.</p>
+        <p>I would recommend Smile Cleaning Ltd as an honest, reliable, communicative and all-round good service company to deal with. I would have no hesitation in recommending them.</p>
+      </div>
+      <div class="ref-sig">
+        <div class="ref-sig-name">Michael Ding</div>
+        <div class="ref-sig-role">Managing Director</div>
+        <div class="ref-sig-org">Tasman International Academies, Central Auckland</div>
+      </div>
+    </div>
+
+    <div class="t-card wide"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"I have no hesitation recommending Smile Cleaning Ltd for any cleaning or facilities position. Kyung Ho is professional, hard-working, and consistently delivers results that exceed expectations. A strong, trustworthy addition to any organisation."</p><div class="t-div"></div><div class="t-name">Olivia Tong</div><div class="t-role">Store Manager</div><div class="t-org">Commercial Client, Auckland</div><span class="t-stag">Commercial cleaning</span></div>
+    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"The team are very professional, hard-working and efficient. Our premises have never looked better since bringing Smile Cleaning on board."</p><div class="t-div"></div><div class="t-name">David Long</div><div class="t-role">Regional Manager</div><div class="t-org">Commercial Client, Auckland</div><span class="t-stag">Commercial cleaning</span></div>
+    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"As a kindergarten we have very specific hygiene requirements — Smile Cleaning understands and takes them seriously. The children's environment is always spotless and safe."</p><div class="t-div"></div><div class="t-name">Reference on request</div><div class="t-role">Head Teacher</div><div class="t-org">Kindergarten, North Shore</div><span class="t-stag">ECE cleaning</span></div>
+    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"Reliable, professional, and great value. We've used many commercial cleaners over the years — Smile Cleaning is the first one we've stayed with long term."</p><div class="t-div"></div><div class="t-name">Reference on request</div><div class="t-role">Office Manager</div><div class="t-org">Corporate Office, Auckland CBD</div><span class="t-stag">Office cleaning</span></div>
+    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"Kay took the time to understand exactly what we needed before starting. The quote was fair and accurate, and they always go above and beyond during the holiday deep cleans."</p><div class="t-div"></div><div class="t-name">Reference on request</div><div class="t-role">Board of Trustees Chair</div><div class="t-org">School, Central Auckland</div><span class="t-stag">School cleaning</span></div>
+  </div>
+</section>
+<section class="credentials">
+  <div class="section-label"><div class="section-label-line" style="background:var(--primary-d);"></div><span class="section-label-text" style="color:var(--primary);">Our credentials</span></div>
+  <h2 class="section-heading" style="color:var(--white);">The standards behind <em style="color:var(--primary-d)">every service</em></h2>
+  <div class="cred-grid">
+    <div class="cred-item"><div class="cred-num">20+</div><div class="cred-title">Years of experience</div><div class="cred-desc">Two decades of institutional cleaning across Auckland schools, ECE centres, and commercial facilities.</div></div>
+    <div class="cred-item"><div class="cred-num">100%</div><div class="cred-title">Police-vetted staff</div><div class="cred-desc">Every team member undergoes a police vetting check before working in any client facility — no exceptions.</div></div>
+    <div class="cred-item"><div class="cred-num">$10M</div><div class="cred-title">Public liability cover</div><div class="cred-desc">Fully insured with $10 million public liability. Documentation available on request.</div></div>
+    <div class="cred-item"><div class="cred-num">H&S</div><div class="cred-title">Health & safety compliant</div><div class="cred-desc">All operations comply with New Zealand health and safety requirements.</div></div>
+  </div>
+</section>
+<div class="cta-strip"><h2>Want to speak to a current client? We can arrange that.</h2><a href="contact.html" class="btn-dark">Get in touch →</a></div>
+<footer><div class="footer-inner">
+  <a class="footer-logo" href="index.html"><img src="logo_yellow.png" alt="Smile Cleaning Ltd" style="height:44px;width:auto;display:block;"></a>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html">Get a Quote</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Smile Cleaning Ltd. Auckland, New Zealand.</span>
+</div></footer>
+</body>
+</html>
