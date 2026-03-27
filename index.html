@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School & ECE Cleaning Auckland | Smile Cleaning Ltd</title>
+<meta name="description" content="Smile Cleaning Ltd provides professional school, ECE, commercial and office cleaning across Auckland. Police-vetted staff, $10M insured, 20+ years experience. Request a free quote today.">
 <link href="https://fonts.googleapis.com/css2?family=Signika:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -212,7 +213,7 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
 .cta-right{display:flex;flex-direction:column;align-items:flex-end;gap:1rem;flex-shrink:0;}
 .cta-phone{display:flex;align-items:center;gap:0.75rem;color:var(--black);text-decoration:none;}
 .cta-phone-icon{width:40px;height:40px;background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;}
-.cta-phone-num{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--primary-d);}
+.cta-phone-num{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--black-soft);}
 .cta-phone-label{font-family:var(--body);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);}
 .cta-respond{font-family:var(--body);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);}
 .hero-left>*{animation:fadeUp 0.6s ease both;}
@@ -220,6 +221,108 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
 .hero-left>*:nth-child(2){animation-delay:0.25s;}
 .hero-left>*:nth-child(3){animation-delay:0.4s;}
 .hero-left>*:nth-child(4){animation-delay:0.55s;}
+
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — shared across all pages
+   Breakpoints:  tablet ≤ 900px  |  phone ≤ 600px
+═══════════════════════════════════════════════ */
+
+/* ── Hamburger (hidden on desktop) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.4rem;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  nav { padding: 0.55rem 2rem; }
+  footer { padding: 2rem 2rem; }
+  .footer-inner { flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+  .footer-links { flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+  .page-hero { padding: 7rem 2rem 4rem; }
+  .cta-strip { padding: 3rem 2rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .cta-strip h2 { font-size: 1.65rem; }
+  .section-heading { max-width: 100%; }
+}
+
+/* ── Phone (≤ 600px) ── */
+@media (max-width: 600px) {
+  nav {
+    padding: 0.55rem 1.25rem;
+    flex-wrap: nowrap;
+  }
+  .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--primary); border-top: 1px solid rgba(0,0,0,0.1); z-index: 99; }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .nav-links a { display: block; padding: 0.9rem 1.5rem; font-size: 0.85rem; }
+  .nav-cta { border-radius: 0 !important; }
+  .nav-hamburger { display: flex; }
+  .nav-logo img { height: 44px; }
+
+  footer { padding: 2rem 1.25rem; }
+  .footer-inner { gap: 1rem; align-items: center; text-align: center; }
+  .footer-links { flex-direction: column; gap: 0.6rem; align-items: center; }
+
+  .page-hero { padding: 5.5rem 1.25rem 3rem; }
+  .page-hero h1 { font-size: clamp(2rem,8vw,2.8rem); }
+
+  .cta-strip { padding: 2.5rem 1.25rem; }
+  .cta-strip h2 { font-size: 1.4rem; }
+  .btn-dark, .btn-primary { width: 100%; justify-content: center; }
+  .section-heading { font-size: clamp(1.5rem,6vw,2rem); margin-bottom: 2rem; }
+}
+
+/* ── INDEX — tablet ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 8rem 2rem 4rem; }
+  .hero-right { display: none; }
+  .hero-stats { position: static; flex-wrap: wrap; gap: 2rem; padding: 0 2rem 2.5rem; background: var(--black); }
+  .trust-strip { padding: 0.9rem 2rem; gap: 1.2rem; justify-content: center; }
+  .services-section { padding: 5rem 2rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .why-us { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+  .why-right { grid-template-columns: 1fr 1fr; }
+  .testimonials-section { padding: 5rem 2rem; }
+  .t-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .contact-cta { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2rem; }
+  .cta-right { align-items: flex-start; }
+}
+
+/* ── INDEX — phone ── */
+@media (max-width: 600px) {
+  .hero-left { padding: 6rem 1.25rem 3rem; }
+  .hero h1 { font-size: clamp(2.2rem,9vw,3rem); margin-bottom: 1.25rem; }
+  .hero-sub { font-size: 0.88rem; margin-bottom: 2rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .hero-stats { padding: 0 1.25rem 2rem; gap: 1.5rem; }
+  .stat-num { font-size: 2rem; }
+  .trust-strip { padding: 0.75rem 1.25rem; gap: 0.8rem; }
+  .trust-dot { display: none; }
+  .services-section { padding: 3.5rem 1.25rem; }
+  .services-grid { grid-template-columns: 1fr; gap: 0; }
+  .svc-card { padding: 2rem 1.5rem; }
+  .why-us { padding: 3.5rem 1.25rem; }
+  .why-right { grid-template-columns: 1fr; }
+  .testimonials-section { padding: 3.5rem 1.25rem; }
+  .contact-cta { padding: 3rem 1.25rem; }
+  .cta-phone-num { font-size: 1.25rem; }
+}
 
 </style>
 </head>
@@ -289,7 +392,7 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
 <section class="contact-cta">
   <div><h2>Ready for a cleaner facility?</h2><p>Get a free, no-obligation quote. We'll assess your space and respond within 24 hours with a tailored cleaning plan.</p></div>
   <div class="cta-right">
-    <a href="tel:0277889393" class="cta-phone"><div class="cta-phone-icon">📞</div><div><div class="cta-phone-label">Call directly</div><div class="cta-phone-num">027 788 9393</div></div></a>
+    <a href="tel:0277889393" class="cta-phone"><div class="cta-phone-icon"><svg width="16" height="16" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.07 6.07l1.27-.52a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cta-phone-label">Call directly</div><div class="cta-phone-num">027 788 9393</div></div></a>
     <a href="contact.html" class="btn-dark">Request a free quote →</a>
     <div class="cta-respond">✓ We respond within 24 hours</div>
   </div>
@@ -305,5 +408,25 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
   </ul>
   <span class="footer-copy">© 2026 Smile Cleaning Ltd. Auckland, New Zealand.</span>
 </div></footer>
+
+<script>
+(function() {
+  var nav = document.querySelector('nav');
+  var links = nav.querySelector('.nav-links');
+  var btn = document.createElement('button');
+  btn.className = 'nav-hamburger';
+  btn.setAttribute('aria-label', 'Toggle menu');
+  btn.innerHTML = '<span></span><span></span><span></span>';
+  btn.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
+  // Close when a link is clicked
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { links.classList.remove('open'); });
+  });
+  nav.appendChild(btn);
+})();
+</script>
+
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get a Free Quote | Smile Cleaning Ltd Auckland</title>
+<meta name="description" content="Request a free, no-obligation cleaning quote from Smile Cleaning Ltd. We serve schools, ECE centres and businesses across Auckland. We respond within 24 hours — call 027 788 9393.">
 <link href="https://fonts.googleapis.com/css2?family=Signika:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -142,7 +143,7 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
 .page-hero h1 em{font-style:italic;color:var(--primary);}
 .page-hero p{
   font-family:var(--body);
-  font-size:0.92rem;line-height:1.8;color:rgba(0,0,0,0.5);
+  font-size:0.92rem;line-height:1.8;color:rgba(255,255,255,0.55);
   max-width:560px;font-weight:400;
 }
 .cta-strip{
@@ -170,7 +171,7 @@ body{background:var(--black);}
 .r-badge{margin-top:3rem;display:inline-flex;align-items:center;gap:0.6rem;padding:0.6rem 1rem;border:1px solid rgba(237,198,36,0.2);border-radius:2px;}
 .r-dot{width:7px;height:7px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-.r-text{font-family:var(--body);font-size:0.75rem;color:rgba(0,0,0,0.5);}
+.r-text{font-family:var(--body);font-size:0.75rem;color:rgba(255,255,255,0.65);}
 .c-right{background:var(--off-white);padding:9rem 5rem 5rem;overflow-y:auto;}
 .fs-title{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--black);margin-bottom:0.5rem;}
 .fs-sub{font-family:var(--body);font-size:0.82rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.6;}
@@ -201,6 +202,88 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .c-left>*:nth-child(3){animation-delay:0.28s;}
 .c-left>*:nth-child(4){animation-delay:0.42s;}
 .c-left>*:nth-child(5){animation-delay:0.56s;}
+
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — shared across all pages
+   Breakpoints:  tablet ≤ 900px  |  phone ≤ 600px
+═══════════════════════════════════════════════ */
+
+/* ── Hamburger (hidden on desktop) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.4rem;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  nav { padding: 0.55rem 2rem; }
+  footer { padding: 2rem 2rem; }
+  .footer-inner { flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+  .footer-links { flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+  .page-hero { padding: 7rem 2rem 4rem; }
+  .cta-strip { padding: 3rem 2rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .cta-strip h2 { font-size: 1.65rem; }
+  .section-heading { max-width: 100%; }
+}
+
+/* ── Phone (≤ 600px) ── */
+@media (max-width: 600px) {
+  nav {
+    padding: 0.55rem 1.25rem;
+    flex-wrap: nowrap;
+  }
+  .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--primary); border-top: 1px solid rgba(0,0,0,0.1); z-index: 99; }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .nav-links a { display: block; padding: 0.9rem 1.5rem; font-size: 0.85rem; }
+  .nav-cta { border-radius: 0 !important; }
+  .nav-hamburger { display: flex; }
+  .nav-logo img { height: 44px; }
+
+  footer { padding: 2rem 1.25rem; }
+  .footer-inner { gap: 1rem; align-items: center; text-align: center; }
+  .footer-links { flex-direction: column; gap: 0.6rem; align-items: center; }
+
+  .page-hero { padding: 5.5rem 1.25rem 3rem; }
+  .page-hero h1 { font-size: clamp(2rem,8vw,2.8rem); }
+
+  .cta-strip { padding: 2.5rem 1.25rem; }
+  .cta-strip h2 { font-size: 1.4rem; }
+  .btn-dark, .btn-primary { width: 100%; justify-content: center; }
+  .section-heading { font-size: clamp(1.5rem,6vw,2rem); margin-bottom: 2rem; }
+}
+
+/* ── CONTACT — tablet ── */
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .c-left { position: static; height: auto; padding: 7rem 2rem 3.5rem; }
+  .c-right { padding: 3rem 2rem 4rem; }
+  .frow { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── CONTACT — phone ── */
+@media (max-width: 600px) {
+  .c-left { padding: 5.5rem 1.25rem 3rem; }
+  .c-right { padding: 2.5rem 1.25rem 3rem; }
+  .frow { grid-template-columns: 1fr; }
+  .cb-grid { grid-template-columns: 1fr; }
+  .r-badge { flex-wrap: wrap; }
+}
 
 </style>
 </head>
@@ -283,15 +366,93 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   </ul>
   <span class="footer-copy">© 2026 Smile Cleaning Ltd. Auckland, New Zealand.</span>
 </div></footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function submitForm() {
   const required = ['fname','lname','org','phone','email','ftype','freq'];
   let valid = true;
   required.forEach(id => {
     const el = document.getElementById(id);
     if (!el || !el.value) {
-      if(el){el.style.borderColor='#e24b4a';el.style.boxShadow='0 0 0 3px rgba(226,75,74,0.12)';el.addEventListener('input',()=>{el.style.borderColor='';el.style.boxShadow='';},{once:true});}
+      if (el) {
+        el.style.borderColor = '#e24b4a';
+        el.style.boxShadow = '0 0 0 3px rgba(226,75,74,0.12)';
+        el.addEventListener('input', () => { el.style.borderColor = ''; el.style.boxShadow = ''; }, { once: true });
+      }
       valid = false;
     }
   });
-  if (!valid) { document.getElementById('fname').scrollIntoView({behavior:'smooth',bl
+  if (!valid) {
+    document.getElementById('fname').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // Gather services checked
+  const services = [];
+  ['s1','s2','s3','s4','s5','s6'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.checked) services.push(el.nextElementSibling.textContent.trim());
+  });
+
+  // Build payload for Formspree
+  const data = {
+    _replyto:       document.getElementById('email').value,
+    _subject:       'New quote request — Smile Cleaning',
+    'First name':   document.getElementById('fname').value,
+    'Last name':    document.getElementById('lname').value,
+    'Organisation': document.getElementById('org').value,
+    'Phone':        document.getElementById('phone').value,
+    'Email':        document.getElementById('email').value,
+    'Suburb':       (document.getElementById('suburb') || {}).value || '',
+    'Facility type': document.getElementById('ftype').value,
+    'Frequency':    document.getElementById('freq').value,
+    'Services':     services.join(', ') || 'None specified',
+    'Message':      (document.getElementById('msg') || {}).value || '',
+    'How heard':    (document.getElementById('src') || {}).value || ''
+  };
+
+  const btn = document.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  fetch('https://formspree.io/f/mykbzlzp', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(res => {
+    if (res.ok) {
+      document.getElementById('quote-form').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'flex';
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = 'Submit quote request <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      alert('Sorry, there was a problem sending your request. Please call us on 027 788 9393.');
+    }
+  })
+  .catch(() => {
+    btn.disabled = false;
+    btn.innerHTML = 'Submit quote request <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    alert('Sorry, there was a problem sending your request. Please call us on 027 788 9393.');
+  });
+}</script>
+
+<script>
+(function() {
+  var nav = document.querySelector("nav");
+  var links = nav.querySelector(".nav-links");
+  var btn = document.createElement("button");
+  btn.className = "nav-hamburger";
+  btn.setAttribute("aria-label", "Toggle menu");
+  btn.innerHTML = "<span></span><span></span><span></span>";
+  btn.addEventListener("click", function() {
+    links.classList.toggle("open");
+  });
+  links.querySelectorAll("a").forEach(function(a) {
+    a.addEventListener("click", function() { links.classList.remove("open"); });
+  });
+  nav.appendChild(btn);
+})();
+</script>
+
+</body>
+</html>

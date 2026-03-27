@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services | Smile Cleaning Ltd Auckland</title>
+<meta name="description" content="Smile Cleaning Ltd offers school cleaning, ECE centre cleaning, commercial and office cleaning across Auckland. Daily maintenance, deep cleans, carpet, window and floor services available.">
 <link href="https://fonts.googleapis.com/css2?family=Signika:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -187,6 +188,95 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
 .proc-title{font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--black);margin-bottom:0.5rem;}
 .proc-desc{font-family:var(--body);font-size:0.8rem;line-height:1.7;color:var(--text-muted);font-weight:400;}
 
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — shared across all pages
+   Breakpoints:  tablet ≤ 900px  |  phone ≤ 600px
+═══════════════════════════════════════════════ */
+
+/* ── Hamburger (hidden on desktop) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.4rem;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  nav { padding: 0.55rem 2rem; }
+  footer { padding: 2rem 2rem; }
+  .footer-inner { flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+  .footer-links { flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+  .page-hero { padding: 7rem 2rem 4rem; }
+  .cta-strip { padding: 3rem 2rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .cta-strip h2 { font-size: 1.65rem; }
+  .section-heading { max-width: 100%; }
+}
+
+/* ── Phone (≤ 600px) ── */
+@media (max-width: 600px) {
+  nav {
+    padding: 0.55rem 1.25rem;
+    flex-wrap: nowrap;
+  }
+  .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--primary); border-top: 1px solid rgba(0,0,0,0.1); z-index: 99; }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .nav-links a { display: block; padding: 0.9rem 1.5rem; font-size: 0.85rem; }
+  .nav-cta { border-radius: 0 !important; }
+  .nav-hamburger { display: flex; }
+  .nav-logo img { height: 44px; }
+
+  footer { padding: 2rem 1.25rem; }
+  .footer-inner { gap: 1rem; align-items: center; text-align: center; }
+  .footer-links { flex-direction: column; gap: 0.6rem; align-items: center; }
+
+  .page-hero { padding: 5.5rem 1.25rem 3rem; }
+  .page-hero h1 { font-size: clamp(2rem,8vw,2.8rem); }
+
+  .cta-strip { padding: 2.5rem 1.25rem; }
+  .cta-strip h2 { font-size: 1.4rem; }
+  .btn-dark, .btn-primary { width: 100%; justify-content: center; }
+  .section-heading { font-size: clamp(1.5rem,6vw,2rem); margin-bottom: 2rem; }
+}
+
+/* ── SERVICES — tablet ── */
+@media (max-width: 900px) {
+  .main-services { padding: 3.5rem 2rem; }
+  .service-block { grid-template-columns: 1fr; }
+  .service-block.reverse .service-image { order: 0; }
+  .service-image { padding-top: 56%; }
+  .service-content { padding: 2.5rem 2rem; }
+  .specials { padding: 4rem 2rem; }
+  .specials-grid { grid-template-columns: 1fr 1fr; }
+  .process { padding: 4rem 2rem; }
+  .proc-steps { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+}
+
+/* ── SERVICES — phone ── */
+@media (max-width: 600px) {
+  .main-services { padding: 3rem 1.25rem; }
+  .service-content { padding: 2rem 1.25rem; }
+  .svc-title-lg { font-size: 1.5rem; }
+  .specials { padding: 3rem 1.25rem; }
+  .specials-grid { grid-template-columns: 1fr; }
+  .process { padding: 3rem 1.25rem; }
+  .proc-steps { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body><nav><a class="nav-logo" href="index.html"><img src="logo_yellow.png" alt="Smile Cleaning Ltd" style="height:54px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="about.html">About</a></li><li><a href="references.html">References</a></li><li><a href="contact.html" class="nav-cta">Get a Quote</a></li></ul></nav>
@@ -323,5 +413,25 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
   </ul>
   <span class="footer-copy">© 2026 Smile Cleaning Ltd. Auckland, New Zealand.</span>
 </div></footer>
+
+<script>
+(function() {
+  var nav = document.querySelector('nav');
+  var links = nav.querySelector('.nav-links');
+  var btn = document.createElement('button');
+  btn.className = 'nav-hamburger';
+  btn.setAttribute('aria-label', 'Toggle menu');
+  btn.innerHTML = '<span></span><span></span><span></span>';
+  btn.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
+  // Close when a link is clicked
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { links.classList.remove('open'); });
+  });
+  nav.appendChild(btn);
+})();
+</script>
+
 </body>
 </html>

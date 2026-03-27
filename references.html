@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>References & Testimonials | Smile Cleaning Ltd Auckland</title>
+<meta name="description" content="Read verified testimonials and reference letters from Auckland schools, ECE centres and commercial clients who trust Smile Cleaning Ltd for reliable, professional cleaning services.">
 <link href="https://fonts.googleapis.com/css2?family=Signika:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -192,6 +193,111 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
 .cred-title{font-family:var(--serif);font-weight:700;font-size:0.88rem;color:var(--white);margin-bottom:0.4rem;}
 .cred-desc{font-family:var(--body);font-size:0.78rem;line-height:1.65;color:rgba(255,255,255,0.35);font-weight:400;}
 
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — shared across all pages
+   Breakpoints:  tablet ≤ 900px  |  phone ≤ 600px
+═══════════════════════════════════════════════ */
+
+/* ── Hamburger (hidden on desktop) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.4rem;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  nav { padding: 0.55rem 2rem; }
+  footer { padding: 2rem 2rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .footer-links { flex-wrap: wrap; gap: 1rem; }
+
+  .page-hero { padding: 7rem 2rem 4rem; }
+  .cta-strip { padding: 3rem 2rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .cta-strip h2 { font-size: 1.65rem; }
+  .section-heading { max-width: 100%; }
+}
+
+/* ── Phone (≤ 600px) ── */
+@media (max-width: 600px) {
+  nav {
+    padding: 0.55rem 1.25rem;
+    flex-wrap: nowrap;
+  }
+  .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--primary); border-top: 1px solid rgba(0,0,0,0.1); z-index: 99; }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .nav-links a { display: block; padding: 0.9rem 1.25rem; font-size: 0.85rem; text-align: center; }
+  .nav-cta { border-radius: 0 !important; text-align: center; }
+  .nav-hamburger { display: flex; }
+  .nav-logo img { height: 44px; }
+
+  footer { padding: 2.5rem 1.25rem; }
+  .footer-inner { flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+  .footer-links { flex-direction: row; flex-wrap: wrap; gap: 0.75rem 1.25rem; justify-content: center; }
+  .footer-copy { text-align: center; }
+
+  .page-hero { padding: 5.5rem 1.25rem 3rem; text-align: center; }
+  .page-hero h1 { font-size: clamp(2rem,8vw,2.8rem); margin-left: auto; margin-right: auto; }
+  .page-hero p { margin-left: auto; margin-right: auto; }
+  .hero-eyebrow { justify-content: center; }
+  .page-hero > div[style] { justify-content: center; }
+
+  .cta-strip { padding: 2.5rem 1.25rem; text-align: center; align-items: center; }
+  .cta-strip h2 { font-size: 1.4rem; }
+  .btn-dark, .btn-primary { width: 100%; justify-content: center; }
+  .section-heading { font-size: clamp(1.5rem,6vw,2rem); margin-bottom: 2rem; }
+
+  .section-label { justify-content: center; }
+  .reviews { text-align: center; }
+  .reviews .section-heading { margin-left: auto; margin-right: auto; }
+}
+
+/* ── REFERENCES — tablet ── */
+@media (max-width: 900px) {
+  .featured { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 2rem; }
+  .feat-mark { font-size: 4rem; }
+  .reviews { padding: 4rem 2rem; }
+  .t-grid { grid-template-columns: 1fr 1fr; }
+  .t-card.wide { grid-column: span 2; }
+  .ref-letter { padding: 2rem; grid-column: span 2; }
+  .credentials { padding: 4rem 2rem; }
+  .cred-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+}
+
+/* ── REFERENCES — phone ── */
+@media (max-width: 600px) {
+  .featured { padding: 3rem 1.25rem; grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+  .feat-label { text-align: center; }
+  .feat-mark { font-size: 4rem; text-align: center; }
+  .featured blockquote { font-size: 1.1rem; text-align: left; }
+  .feat-name, .feat-role, .feat-org { text-align: left; }
+  .reviews { padding: 3rem 1.25rem; }
+  .t-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .t-card.wide { grid-column: span 1; }
+  .t-card { padding: 1.75rem 1.25rem; }
+  .ref-letter { padding: 1.75rem 1.25rem; grid-column: span 1; }
+  .credentials { padding: 3rem 1.25rem; text-align: center; }
+  .credentials .section-label { justify-content: center; }
+  .credentials .section-heading { text-align: center; margin-left: auto; margin-right: auto; }
+  .cred-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+  .cred-item { padding: 1.75rem 1rem; text-align: center; }
+  .cred-num { font-size: 2rem; }
+}
+
 </style>
 </head>
 <body><nav><a class="nav-logo" href="index.html"><img src="logo_yellow.png" alt="Smile Cleaning Ltd" style="height:54px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="references.html" class="active">References</a></li><li><a href="contact.html" class="nav-cta">Get a Quote</a></li></ul></nav>
@@ -205,7 +311,7 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
   <div><div class="feat-label">Featured reference</div><div class="feat-mark">"</div></div>
   <div>
     <blockquote>"Smile Cleaning is one of the best companies I've ever worked with. Reliable, thorough, and always professional — our centre is in great hands and the difference in our environment has been remarkable."</blockquote>
-    <div class="feat-name">Joy Cho</div><div class="feat-role">Centre Manager</div><div class="feat-org">Early Childhood Centre, Auckland</div>
+    <div class="feat-name">Joy Cho</div><div class="feat-role">Centre Manager</div><div class="feat-org">Just Kidz, Auckland</div>
   </div>
 </div>
 <section class="reviews">
@@ -228,11 +334,10 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
       </div>
     </div>
 
-    <div class="t-card wide"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"I have no hesitation recommending Smile Cleaning Ltd for any cleaning or facilities position. Kyung Ho is professional, hard-working, and consistently delivers results that exceed expectations. A strong, trustworthy addition to any organisation."</p><div class="t-div"></div><div class="t-name">Olivia Tong</div><div class="t-role">Store Manager</div><div class="t-org">Commercial Client, Auckland</div><span class="t-stag">Commercial cleaning</span></div>
-    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"The team are very professional, hard-working and efficient. Our premises have never looked better since bringing Smile Cleaning on board."</p><div class="t-div"></div><div class="t-name">David Long</div><div class="t-role">Regional Manager</div><div class="t-org">Commercial Client, Auckland</div><span class="t-stag">Commercial cleaning</span></div>
+    <div class="t-card wide"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"I have no hesitation recommending Smile Cleaning Ltd for any cleaning or facilities position. Kyung Ho is professional, hard-working, and consistently delivers results that exceed expectations. A strong, trustworthy addition to any organisation."</p><div class="t-div"></div><div class="t-name">Olivia Tong</div><div class="t-role">Store Manager</div><div class="t-org">Luxury Shop, Auckland</div><span class="t-stag">Commercial cleaning</span></div>
+    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"The team are very professional, hard-working and efficient. Our premises have never looked better since bringing Smile Cleaning on board."</p><div class="t-div"></div><div class="t-name">David Long</div><div class="t-role">Regional Manager</div><div class="t-org">Gucci, Auckland</div><span class="t-stag">Commercial cleaning</span></div>
     <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"As a kindergarten we have very specific hygiene requirements — Smile Cleaning understands and takes them seriously. The children's environment is always spotless and safe."</p><div class="t-div"></div><div class="t-name">Reference on request</div><div class="t-role">Head Teacher</div><div class="t-org">Kindergarten, North Shore</div><span class="t-stag">ECE cleaning</span></div>
-    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"Reliable, professional, and great value. We've used many commercial cleaners over the years — Smile Cleaning is the first one we've stayed with long term."</p><div class="t-div"></div><div class="t-name">Reference on request</div><div class="t-role">Office Manager</div><div class="t-org">Corporate Office, Auckland CBD</div><span class="t-stag">Office cleaning</span></div>
-    <div class="t-card"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"Kay took the time to understand exactly what we needed before starting. The quote was fair and accurate, and they always go above and beyond during the holiday deep cleans."</p><div class="t-div"></div><div class="t-name">Reference on request</div><div class="t-role">Board of Trustees Chair</div><div class="t-org">School, Central Auckland</div><span class="t-stag">School cleaning</span></div>
+    <div class="t-card wide"><div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="t-quote">"Maintaining a premium environment is essential to our brand, and the cleaning team consistently delivers to that standard. Their professionalism, discretion, and attention to detail ensure our space is always presented at its best. A trusted and dependable service."</p><div class="t-div"></div><div class="t-name">Teresa</div><div class="t-role">Store Manager</div><div class="t-org">Gucci, Auckland</div><span class="t-stag">Retail cleaning</span></div>
   </div>
 </section>
 <section class="credentials">
@@ -257,5 +362,25 @@ h1,h2,h3,h4,.section-heading,.hero h1,.page-hero h1{
   </ul>
   <span class="footer-copy">© 2026 Smile Cleaning Ltd. Auckland, New Zealand.</span>
 </div></footer>
+
+<script>
+(function() {
+  var nav = document.querySelector('nav');
+  var links = nav.querySelector('.nav-links');
+  var btn = document.createElement('button');
+  btn.className = 'nav-hamburger';
+  btn.setAttribute('aria-label', 'Toggle menu');
+  btn.innerHTML = '<span></span><span></span><span></span>';
+  btn.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
+  // Close when a link is clicked
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { links.classList.remove('open'); });
+  });
+  nav.appendChild(btn);
+})();
+</script>
+
 </body>
 </html>
