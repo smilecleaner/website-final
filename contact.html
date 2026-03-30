@@ -286,6 +286,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 }
 
 </style>
+<script src="security.js"></script>
 </head>
 <body><nav><a class="nav-logo" href="index.html"><img src="logo_yellow.png" alt="Smile Cleaning Ltd" style="height:54px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="references.html">References</a></li><li><a href="contact.html" class="nav-cta active">Get a Quote</a></li></ul></nav>
 <div class="contact-layout">
@@ -367,60 +368,120 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <span class="footer-copy">© 2026 Smile Cleaning Ltd. Auckland, New Zealand.</span>
 </div></footer>
 <script>
+/* ── Initialise security module on load ── */
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('quote-form');
+  if (form && window.SmileSecurity) {
+    SmileSecurity.initForm(form);
+  }
+});
+
+/* ── Field-level validators map ── */
+var FIELD_VALIDATORS = {
+  fname:  { type: 'name',   label: 'First name' },
+  lname:  { type: 'name',   label: 'Last name' },
+  org:    { type: 'text',   label: 'Organisation' },
+  phone:  { type: 'phone',  label: 'Phone number' },
+  email:  { type: 'email',  label: 'Email address' },
+  ftype:  { type: 'select', label: 'Facility type' },
+  freq:   { type: 'select', label: 'Frequency' }
+};
+
+function markInvalid(el) {
+  el.style.borderColor = '#e24b4a';
+  el.style.boxShadow   = '0 0 0 3px rgba(226,75,74,0.12)';
+  el.addEventListener('input', function () {
+    el.style.borderColor = '';
+    el.style.boxShadow   = '';
+  }, { once: true });
+}
+
 function submitForm() {
-  const required = ['fname','lname','org','phone','email','ftype','freq'];
-  let valid = true;
-  required.forEach(id => {
-    const el = document.getElementById(id);
-    if (!el || !el.value) {
-      if (el) {
-        el.style.borderColor = '#e24b4a';
-        el.style.boxShadow = '0 0 0 3px rgba(226,75,74,0.12)';
-        el.addEventListener('input', () => { el.style.borderColor = ''; el.style.boxShadow = ''; }, { once: true });
+  var sec = window.SmileSecurity;
+
+  /* ── Rate limit / honeypot / timing check ── */
+  var form = document.getElementById('quote-form');
+  if (sec) {
+    var check = sec.preSubmitCheck(form);
+    if (!check.ok) {
+      if (check.reason === 'rate_limited') {
+        alert('Too many requests. Please wait a moment and try again, or call us on 027 788 9393.');
       }
+      // For honeypot / timing: silently pretend success so bots get no feedback
+      if (check.reason === 'honeypot' || check.reason === 'submission_too_fast') {
+        document.getElementById('quote-form').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'flex';
+      }
+      return;
+    }
+  }
+
+  /* ── Required field validation ── */
+  var valid = true;
+  var firstInvalid = null;
+
+  Object.keys(FIELD_VALIDATORS).forEach(function (id) {
+    var cfg = FIELD_VALIDATORS[id];
+    var el  = document.getElementById(id);
+    if (!el) return;
+
+    var value = el.value || '';
+    var passes = sec
+      ? sec.validators[cfg.type](value)
+      : value.trim().length > 0;
+
+    if (!passes) {
+      markInvalid(el);
       valid = false;
+      if (!firstInvalid) firstInvalid = el;
     }
   });
+
   if (!valid) {
-    document.getElementById('fname').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
 
-  // Gather services checked
-  const services = [];
-  ['s1','s2','s3','s4','s5','s6'].forEach(id => {
-    const el = document.getElementById(id);
+  /* ── Gather checked services ── */
+  var services = [];
+  ['s1','s2','s3','s4','s5','s6'].forEach(function (id) {
+    var el = document.getElementById(id);
     if (el && el.checked) services.push(el.nextElementSibling.textContent.trim());
   });
 
-  // Build payload for Formspree
-  const data = {
-    _replyto:       document.getElementById('email').value,
-    _subject:       'New quote request — Smile Cleaning',
-    'First name':   document.getElementById('fname').value,
-    'Last name':    document.getElementById('lname').value,
-    'Organisation': document.getElementById('org').value,
-    'Phone':        document.getElementById('phone').value,
-    'Email':        document.getElementById('email').value,
-    'Suburb':       (document.getElementById('suburb') || {}).value || '',
+  /* ── Build & sanitize payload ── */
+  var rawData = {
+    _replyto:        document.getElementById('email').value,
+    _subject:        'New quote request — Smile Cleaning',
+    'First name':    document.getElementById('fname').value,
+    'Last name':     document.getElementById('lname').value,
+    'Organisation':  document.getElementById('org').value,
+    'Phone':         document.getElementById('phone').value,
+    'Email':         document.getElementById('email').value,
+    'Suburb':        (document.getElementById('suburb') || {}).value || '',
     'Facility type': document.getElementById('ftype').value,
-    'Frequency':    document.getElementById('freq').value,
-    'Services':     services.join(', ') || 'None specified',
-    'Message':      (document.getElementById('msg') || {}).value || '',
-    'How heard':    (document.getElementById('src') || {}).value || ''
+    'Frequency':     document.getElementById('freq').value,
+    'Services':      services.join(', ') || 'None specified',
+    'Message':       (document.getElementById('msg') || {}).value || '',
+    'How heard':     (document.getElementById('src') || {}).value || ''
   };
 
-  const btn = document.querySelector('.btn-submit');
+  // Sanitize every value before sending
+  var data = sec ? sec.sanitizePayload(rawData) : rawData;
+
+  /* ── Submit ── */
+  var btn = document.querySelector('.btn-submit');
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
   fetch('https://formspree.io/f/mykbzlzp', {
-    method: 'POST',
+    method:  'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(data)
+    body:    JSON.stringify(data)
   })
-  .then(res => {
+  .then(function (res) {
     if (res.ok) {
+      if (sec) sec.recordSubmission();
       document.getElementById('quote-form').style.display = 'none';
       document.getElementById('success-msg').style.display = 'flex';
     } else {
@@ -429,12 +490,13 @@ function submitForm() {
       alert('Sorry, there was a problem sending your request. Please call us on 027 788 9393.');
     }
   })
-  .catch(() => {
+  .catch(function () {
     btn.disabled = false;
     btn.innerHTML = 'Submit quote request <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
     alert('Sorry, there was a problem sending your request. Please call us on 027 788 9393.');
   });
-}</script>
+}
+</script>
 
 <script>
 (function() {
