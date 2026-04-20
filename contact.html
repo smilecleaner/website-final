@@ -433,24 +433,7 @@ function markInvalid(el, cfg) {
 function submitForm() {
   var sec = window.SmileSecurity;
 
-  /* ── Rate limit / honeypot / timing check ── */
-  var form = document.getElementById('quote-form');
-  if (sec) {
-    var check = sec.preSubmitCheck(form);
-    if (!check.ok) {
-      if (check.reason === 'rate_limited') {
-        alert('Too many requests. Please wait a moment and try again, or call us on 027 788 9393.');
-      }
-      // For honeypot / timing: silently pretend success so bots get no feedback
-      if (check.reason === 'honeypot' || check.reason === 'submission_too_fast') {
-        document.getElementById('quote-form').style.display = 'none';
-        document.getElementById('success-msg').style.display = 'flex';
-      }
-      return;
-    }
-  }
-
-  /* ── Required field validation ── */
+  /* ── Required field validation (runs first so real users always get feedback) ── */
   var valid = true;
   var firstInvalid = null;
 
@@ -478,6 +461,23 @@ function submitForm() {
       setTimeout(function () { firstInvalid.focus({ preventScroll: true }); }, 400);
     }
     return;
+  }
+
+  /* ── Bot / rate-limit checks (only on otherwise valid submissions) ── */
+  var form = document.getElementById('quote-form');
+  if (sec) {
+    var check = sec.preSubmitCheck(form);
+    if (!check.ok) {
+      if (check.reason === 'rate_limited') {
+        alert('Too many requests. Please wait a moment and try again, or call us on 027 788 9393.');
+      }
+      // For honeypot / timing: silently pretend success so bots get no feedback
+      if (check.reason === 'honeypot' || check.reason === 'submission_too_fast') {
+        document.getElementById('quote-form').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'flex';
+      }
+      return;
+    }
   }
 
   /* ── Gather checked services ── */
