@@ -182,6 +182,10 @@ label{display:block;font-family:var(--body);font-size:0.72rem;font-weight:500;le
 label span{color:var(--primary-d);}
 input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--off-white-dark);border-radius:2px;font-family:var(--body);font-size:0.88rem;color:var(--text-body);outline:none;transition:border-color 0.2s,box-shadow 0.2s;appearance:none;-webkit-appearance:none;}
 input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(237,198,36,0.12);}
+.fgroup input.invalid,.fgroup select.invalid,.fgroup textarea.invalid{border-color:#e24b4a;box-shadow:0 0 0 3px rgba(226,75,74,0.12);}
+.fgroup input.invalid:focus,.fgroup select.invalid:focus,.fgroup textarea.invalid:focus{border-color:#e24b4a;box-shadow:0 0 0 3px rgba(226,75,74,0.2);}
+.field-error{display:none;font-family:var(--body);font-size:0.75rem;color:#c53030;margin-top:0.4rem;line-height:1.4;}
+.fgroup.has-error .field-error{display:block;}
 textarea{resize:vertical;min-height:120px;line-height:1.6;}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23888' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;}
 .cb-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.5rem;}
@@ -296,7 +300,6 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <p>Fill in the form and we'll come back to you within 24 hours — or call us directly if you'd prefer to talk first.</p>
     <div class="c-details">
       <div class="c-item"><div class="c-icon"><svg width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="c-label">Call directly</div><div class="c-value"><a href="tel:0277889393">027 788 9393</a></div></div></div>
-      <div class="c-item"><div class="c-icon"><svg width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="c-label">Email us</div><div class="c-value"><a href="/cdn-cgi/l/email-protection#3b5a5f5652557b485652575e58575e5a5552555c574f5f15585456"><span class="__cf_email__" data-cfemail="91f0f5fcf8ffd1e2fcf8fdf4f2fdf4f0fff8fff6fde5f5bff2fefc">[email&#160;protected]</span></a></div></div></div>
       <div class="c-item"><div class="c-icon"><svg width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="c-label">Based in</div><div class="c-value">Auckland, New Zealand</div></div></div>
     </div>
     <div class="r-badge"><div class="r-dot"></div><span class="r-text">We respond to all enquiries within 24 hours</span></div>
@@ -387,13 +390,44 @@ var FIELD_VALIDATORS = {
   freq:   { type: 'select', label: 'Frequency' }
 };
 
-function markInvalid(el) {
-  el.style.borderColor = '#e24b4a';
-  el.style.boxShadow   = '0 0 0 3px rgba(226,75,74,0.12)';
-  el.addEventListener('input', function () {
-    el.style.borderColor = '';
-    el.style.boxShadow   = '';
-  }, { once: true });
+/* Error message per validator type, used under the field */
+var ERROR_MESSAGES = {
+  name:   'Please enter a valid name (letters only).',
+  text:   'This field is required.',
+  phone:  'Please enter a valid phone number.',
+  email:  'Please enter a valid email address.',
+  select: 'Please choose an option.'
+};
+
+function markInvalid(el, cfg) {
+  el.classList.add('invalid');
+  el.setAttribute('aria-invalid', 'true');
+
+  var group = el.closest('.fgroup');
+  if (group) {
+    group.classList.add('has-error');
+    var err = group.querySelector('.field-error');
+    if (!err) {
+      err = document.createElement('div');
+      err.className = 'field-error';
+      err.setAttribute('role', 'alert');
+      err.id = el.id + '-error';
+      group.appendChild(err);
+      el.setAttribute('aria-describedby', err.id);
+    }
+    err.textContent = ERROR_MESSAGES[cfg.type] || 'This field is required.';
+  }
+
+  /* Clear the error state as soon as the user starts fixing it */
+  var clear = function () {
+    el.classList.remove('invalid');
+    el.removeAttribute('aria-invalid');
+    if (group) group.classList.remove('has-error');
+    el.removeEventListener('input', clear);
+    el.removeEventListener('change', clear);
+  };
+  el.addEventListener('input', clear);
+  el.addEventListener('change', clear);
 }
 
 function submitForm() {
@@ -431,14 +465,18 @@ function submitForm() {
       : value.trim().length > 0;
 
     if (!passes) {
-      markInvalid(el);
+      markInvalid(el, cfg);
       valid = false;
       if (!firstInvalid) firstInvalid = el;
     }
   });
 
   if (!valid) {
-    if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (firstInvalid) {
+      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      /* Focus after the scroll settles so the user can type immediately */
+      setTimeout(function () { firstInvalid.focus({ preventScroll: true }); }, 400);
+    }
     return;
   }
 
@@ -474,7 +512,7 @@ function submitForm() {
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
-  fetch('https://formspree.io/f/mykbzlzp', {
+  fetch('https://formspree.io/f/maqadoaq', {
     method:  'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body:    JSON.stringify(data)

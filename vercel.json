@@ -33,7 +33,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'nonce-{NONCE}' https://vercel.live/_next-live/feedback/feedback.js https://_vercel; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://vitals.vercel-insights.com https://vercel.live; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://vitals.vercel-insights.com https://vercel.live; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;"
         }
       ]
     }
