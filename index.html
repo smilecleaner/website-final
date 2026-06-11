@@ -202,18 +202,6 @@ footer a{display:block;padding:4px 0;color:#B9B7AD}
 footer a:hover{color:var(--yellow)}
 .f-bottom{margin-top:40px;padding-top:22px;border-top:1px solid #262626;font-size:12.5px;color:#7C7A71}
 
-.cb{position:fixed;right:22px;bottom:22px;z-index:70;display:none;flex-direction:column;align-items:flex-end;gap:10px}
-@media(min-width:761px){.cb{display:flex}}
-.cb-toggle{display:inline-flex;align-items:center;gap:9px;background:var(--black);color:#fff;font-weight:700;font-size:14px;border:none;border-radius:999px;padding:13px 20px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.cb-toggle:hover{background:var(--black-2)}
-.cb-card{display:none;width:280px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 12px 36px rgba(0,0,0,.18)}
-.cb-card.open{display:block}
-.cb-card b{font-size:15px;color:var(--black);display:block}
-.cb-card .cb-sub{font-size:12.5px;color:var(--muted);display:block;margin:2px 0 12px}
-.cb-card input{margin-bottom:10px}
-.cb-card .btn{width:100%;justify-content:center;font-size:14.5px;padding:12px}
-.cb-done{display:none;font-size:13.5px;color:var(--black);font-weight:600;padding-top:4px}
-
 /* mobile sticky bar */
 .sticky-call{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
 .sticky-call a{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;font-weight:700;font-size:15px}
@@ -540,18 +528,6 @@ footer a:hover{color:var(--yellow)}
   <a class="c2" href="#quote">Free quote</a>
 </div>
 
-<div class="cb" id="cb">
-  <button class="cb-toggle" id="cb-toggle" type="button"><svg class="ico" viewBox="0 0 24 24" style="width:17px;height:17px"><use href="#i-phone"/></svg><span>Request a callback</span></button>
-  <div class="cb-card" id="cb-card">
-    <b>Leave your number.</b>
-    <span class="cb-sub">Sanglok will call you back.</span>
-    <form id="cb-form">
-      <input id="cb-phone" type="tel" placeholder="021 ..." aria-label="Your phone number">
-      <button class="btn btn-y" type="submit">Call me back</button>
-    </form>
-    <div class="cb-done" id="cb-done">Thanks — we'll call you shortly.</div>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -607,27 +583,6 @@ footer a:hover{color:var(--yellow)}
       }, 5000);
     }
   })();
-
-  /* ---------- callback widget ---------- */
-  var cbToggle = document.getElementById('cb-toggle');
-  var cbCard = document.getElementById('cb-card');
-  var cbForm = document.getElementById('cb-form');
-  var cbDone = document.getElementById('cb-done');
-  cbToggle.addEventListener('click', function(){ cbCard.classList.toggle('open'); });
-  cbForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    var ph = document.getElementById('cb-phone');
-    if(!/[\d\s+()-]{7,}/.test(ph.value.trim())){ ph.classList.add('err'); return; }
-    ph.classList.remove('err');
-    var btn = cbForm.querySelector('button'); btn.disabled = true;
-    fetch('https://formspree.io/f/maqadoaq', {
-      method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
-      body: JSON.stringify({ phone: ph.value.trim(), _subject: 'Callback request \u2014 smilecleaningltd.co.nz' })
-    }).then(function(r){
-      if(!r.ok) throw 0;
-      cbForm.style.display='none'; cbDone.style.display='block';
-    }).catch(function(){ btn.disabled=false; });
-  });
 
   /* two-step Auckland area -> suburb */
   var SUBURBS = {
